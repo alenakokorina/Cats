@@ -1,0 +1,443 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html"; charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body class="body">
+   <img src="kotek1.png" alt="k1" class="kotek1" id="kot1">
+   <img src="kotek2.png" alt="k2" class="kotek2" id="kot2"> 
+   <img src="kotek3.png" alt="k3" class="kotek3" id="kot3"> 
+   <img src="kotek4.png" alt="k4" class="kotek4" id="kot4"> 
+   <img src="startgame.png" alt="sg" class="startgame" id="sg" onclick="invisible1()"> 
+   <img src="instruction.png" alt="sg" class="instruction" id="ins" onclick="invisible2()"> 
+   <img src="0.gif" alt="0" class="fire" id="fire0">
+   <img src="11.gif" alt="11" class="fire" id="fire11">
+   <img src="2.gif" alt="2" class="fire" id="fire2">
+   <img src="3.gif" alt="3" class="fire" id="fire3">
+   <img src="4.gif" alt="4" class="fire" id="fire4">
+   <img src="5.gif" alt="5" class="fire" id="fire5">
+   <img src="6.gif" alt="6" class="fire" id="fire6">
+   <img src="7.gif" alt="7" class="fire" id="fire7">
+   <img src="с1.gif" alt="8" class="cong" id="c1">
+   <img src="с2.gif" alt="9" class="cong" id="c2">
+   <img src="ta.png" alt="10" class="instruction" id="ta" onclick="reload()">
+   <audio src="bump.mp3" id="audio"></audio>
+   <button class="button" id="button1" onclick="test_1()">test 1</button> <br />
+   <button class="button" id="button2" onclick="test_2()">test 2</button> <br />
+   <button class="button" id="button3" onclick="test_3()">test 3</button> <br />
+   <button class="button" id="button4" onclick="test_4()">test 4</button> <br />
+   <button class="button" id="button5" onclick="test_5()">test 5</button> <br />
+   <button class="button" id="button6" onclick="test_6()">test 6</button> <br />
+   <button class="button" id="button7" onclick="test_7()">test 7</button> 
+   <script>
+       var kot = [document.getElementById("kot1"), document.getElementById("kot2"), document.getElementById("kot3"), document.getElementById("kot4")];
+       var dx = [];
+       var dy = [];
+
+       for (k = 0; k < 4; k++) {
+           dx[k] = Math.random() * (5 - 1) + 1;
+           dy[k] = Math.random() * (5 - 1) + 1;
+       }
+       
+     function test_1() { // оба двигаются по горизонтали по направлению друг к другу
+         kot[0].style.top = String(parseFloat(document.documentElement.clientHeight) / 2) + "px";
+
+         kot[1].style.top = String(parseFloat(document.documentElement.clientHeight) / 2) + "px";
+         kot[1].style.left = "800px";
+
+         dx[0] = 1;
+         dy[0] = 0;
+
+         dx[1] = -1;
+         dy[1] = 0;
+
+         dx[2] = 0;
+         dy[2] = 0;
+
+         dx[3] = 0;
+         dy[3] = 0;
+     }
+
+     function test_2() { // один двигается к другому под углом 45 градусов
+         kot[0].style.top = String(parseFloat(document.documentElement.clientHeight) - 150) + "px";
+
+         kot[1].style.top = String(parseFloat(document.documentElement.clientHeight) / 2) + "px";
+         kot[1].style.left = "400px";
+
+         dx[0] = 1;
+         dy[0] = -1;
+
+         dx[1] = 0;
+         dy[1] = 0;
+
+         dx[2] = 0;
+         dy[2] = 0;
+
+         dx[3] = 0;
+         dy[3] = 0;
+     }
+
+     function test_3() { // один двигается к другому по вертикали
+         kot[0].style.top = String(parseFloat(document.documentElement.clientHeight) - 150) + "px";
+
+         kot[1].style.top = String(parseFloat(document.documentElement.clientHeight) / 2) + "px";
+         kot[1].style.left = "1px";
+
+         dx[0] = 0;
+         dy[0] = -1;
+
+         dx[1] = 0;
+         dy[1] = 0;
+
+         dx[2] = 0;
+         dy[2] = 0;
+
+         dx[3] = 0;
+         dy[3] = 0;
+     }
+
+     function test_4() { // оба двигаются друг к другу под маленьким углом
+         kot[0].style.top = String(parseFloat(document.documentElement.clientHeight) - 150) + "px";
+
+         kot[1].style.top = String(parseFloat(document.documentElement.clientHeight) - 300) + "px";
+         kot[1].style.left = String(parseFloat(document.documentElement.clientWidth) / 2) + "px";
+
+         dx[0] = 4;
+         dy[0] = -0.5;
+
+         dx[1] = -4;
+         dy[1] = 0.5;
+
+         dx[2] = 0;
+         dy[2] = 0;
+
+         dx[3] = 0;
+         dy[3] = 0;
+     }
+
+     function test_5() { // оба движутся друг к другу под углом 90 граудсов
+         kot[0].style.top = String(parseFloat(document.documentElement.clientHeight) - 150) + "px";
+         kot[0].style.left = String(parseFloat(document.documentElement.clientWidth) / 2) + "px";
+
+         kot[1].style.top = String(parseFloat(document.documentElement.clientHeight) / 2) + "px";
+         kot[1].style.left = String(parseFloat(document.documentElement.clientWidth) - 150) + "px";
+
+         dx[0] = 0;
+         dy[0] = -1;
+
+         dx[1] = -2;
+         dy[1] = 0;
+
+         dx[2] = 0;
+         dy[2] = 0;
+
+         dx[3] = 0;
+         dy[3] = 0;
+     }
+
+     function test_6() { // один движется под углом к тому, который стоит у верхней границы
+         kot[0].style.top = String(parseFloat(document.documentElement.clientHeight) / 2) + "px";
+
+         dx[0] = 2;
+         dy[0] = -5;
+
+         dx[1] = 0;
+         dy[1] = 0;
+
+         dx[2] = 0;
+         dy[2] = 0;
+
+         dx[3] = 0;
+         dy[3] = 0;
+     }
+
+     function test_7() { // все двигаются в известном направлении
+         dx[0] = 10;
+         dy[0] = 1;
+
+         dx[1] = -1;
+         dy[1] = 2;
+
+         dx[2] = 1;
+         dy[2] = 3;
+
+         dx[3] = -2;
+         dy[3] = 8;
+     }
+
+     function energy() {
+         var en0 = (dx[0] * dx[0] + dy[0] * dy[0]) / 2;
+         var en1 = (dx[1] * dx[1] + dy[1] * dy[1]) / 2;
+         var en2 = (dx[2] * dx[2] + dy[2] * dy[2]) / 2;
+         var en3 = (dx[3] * dx[3] + dy[3] * dy[3]) / 2;
+
+         var energySum = en0 + en1 + en2 + en3;
+
+         return (energySum);
+     }
+
+       // проверка на положение относительно краёв экрана
+     function check(x, y, i) {
+         var w = parseFloat(document.documentElement.clientWidth) - 150;
+         var h = parseFloat(document.documentElement.clientHeight) - 150;
+
+         var xn = x + dx[i];
+         var yn = y + dy[i];
+
+         if (xn <= 0) {
+             return "left";
+         }
+         if (xn >= w) {
+             return "right";
+         }
+         if (yn <= 0) {
+             return "top";
+         }
+         if (yn >= h) {
+             return "bottom";
+         }
+     }
+
+     // основная функция отталкивания
+     function reflectCat(m, n, gamma) {
+         // переход в систему координат второго объекта
+         var x1 = dx[m] - dx[n];
+         var y1 = dy[m] - dy[n];
+
+         var x2 = dx[n] - dx[n];
+         var y2 = dy[n] - dy[n];
+
+         // бета - угол между изначальным вектором первого объекта и осью Х
+         // альфа - угол между изначальным вектором первого объекта и конечным вектором второго объекта
+         var beta = Math.atan(y1 / x1);
+         var alpha = beta - gamma;
+
+         // подсчёт длин векторов
+         var u1 = Math.abs(Math.sqrt(x1 * x1 + y1 * y1) * Math.sin(alpha));
+         var u2 = Math.abs(Math.sqrt(x1 * x1 + y1 * y1) * Math.cos(alpha));
+
+         // нахождение новых векторов через их длины
+         var u2_x = u2 * Math.cos(gamma);
+         var u2_y = u2 * Math.sin(gamma);
+
+         var u1_x = x1 - u2_x;
+         var u1_y = y1 - u2_y;
+
+         // возвращение из системы координат второго объекта
+         dx[m] = u1_x + dx[n];
+         dy[m] = u1_y + dy[n];
+
+         dx[n] = u2_x + dx[n];
+         dy[n] = u2_y + dy[n];
+     }
+
+     // начало отталкивания 
+     function bounceCats(i, q, coorX, coorY) {
+
+         var sEn1 = energy();
+
+         var coor_x1 = coorX[i];
+         var coor_y1 = coorY[i];
+
+         var coor_x2 = coorX[q];
+         var coor_y2 = coorY[q];
+
+         // подсчёт угла между центрами объектов
+         var gamma = Math.atan((coor_y2 - coor_y1) / (coor_x2 - coor_x1));
+         if (coor_x1 > coor_x2) {
+             gamma += Math.PI;
+         }
+ 
+         reflectCat(i, q, gamma);
+
+         var sEn2 = energy();
+     }
+
+      // проверка объектов на столкновение между собой
+      function clash(coorX, coorY, i) {
+         var distance, q;
+         // исключение случая "столкновения с самим собой"
+         for (q = 0; q < 4; q++) {
+		    if (q == i) {
+			   continue;
+		    }
+            // проверка следующего шага без его выполнения
+		    var xn = coorX[i] + dx[i];
+		    var yn = coorY[i] + dy[i];
+            
+		    var xm = coorX[q] + dx[q];
+		    var ym = coorY[q] + dy[q];
+
+            // подсчёт расстояния между центрами объектов
+            distance = Math.sqrt((xn - xm)*(xn - xm) + (yn - ym)*(yn - ym)); 
+            if (distance <= 150) {
+                bounceCats(i, q, coorX, coorY);
+                return false;
+            } 
+         }
+         return true;
+      }
+
+      // главная функция
+      function main() {
+	  var kot = [document.getElementById("kot1"),document.getElementById("kot2"),document.getElementById("kot3"),document.getElementById("kot4")];
+         var i, j;
+         var coorX, coorY;
+         // создание и заполнение массива координат середин объектов 
+         setInterval (function() {
+            coorX = [];
+	        coorY = [];
+            for (j = 0; j < 4; j++) {
+			   var ComputedStyleLeft = parseFloat(getComputedStyle(kot[j]).left) + 75;
+			   var ComputedStyleTop = parseFloat(getComputedStyle(kot[j]).top) + 75;
+	           coorX[j] = ComputedStyleLeft;
+               coorY[j] = ComputedStyleTop;
+            }
+            // считывание координат и проверка на положение относительно краёв экрана
+            for (i = 0; i < 4; i++) {
+               var ComputedStyle = getComputedStyle(kot[i]);
+               var x = parseFloat(ComputedStyle.left);
+               var y = parseFloat(ComputedStyle.top);
+
+               if (check(x, y, i) == "bottom") {
+                   dy[i] *= -1;
+                   continue;
+               }
+               if (check(x, y, i) == "top") {
+                   dy[i] *= -1;
+                   continue;
+               }
+               if (check(x, y, i) == "left") {
+                   dx[i] *= -1;
+                   continue;
+               }
+               if (check(x, y, i) == "right") {
+                   dx[i] *= -1;
+                   continue;
+	           }
+               
+               // проверка на столкновение объектов между собой
+               if (clash(coorX, coorY, i) == false) {
+                   continue;
+               }
+
+               // изменение вектора
+	           x += dx[i];
+	           y += dy[i];
+	           kot[i].style.left = String(x) + "px";
+	           kot[i].style.top = String(y) + "px";
+            }
+         }, 10)
+      }
+
+      // перезагрузка (начало игры с начала)
+      function reload() {
+         location.reload();
+      }
+
+      // удаление click to start и высвечивание инструкции
+      function invisible1() {
+         var invsg = document.getElementById("sg");
+         invsg.remove();
+         document.getElementById("ins").style.display = "inline";
+      }
+
+      // удаление инструкции и начало движения котиков (игры)
+      function invisible2() {
+         var invsg = document.getElementById("ins");
+         invsg.remove();
+         main();
+      }
+
+      function fire() {
+         document.getElementById("fire0").style.display = "inline";
+         setTimeout('document.getElementById("fire0").style.display = "none"', 100);
+
+         document.getElementById("fire11").style.display = "inline";
+         setTimeout('document.getElementById("fire11").style.display = "none"', 120);
+
+         document.getElementById("fire2").style.display = "inline";
+         setTimeout('document.getElementById("fire2").style.display = "none"', 140);
+
+         document.getElementById("fire3").style.display = "inline";
+         setTimeout('document.getElementById("fire3").style.display = "none"', 160);
+
+         document.getElementById("fire4").style.display = "inline";
+         setTimeout('document.getElementById("fire4").style.display = "none"', 180);
+
+         document.getElementById("fire5").style.display = "inline";
+         setTimeout('document.getElementById("fire5").style.display = "none"', 200);
+
+         document.getElementById("fire6").style.display = "inline";
+         setTimeout('document.getElementById("fire6").style.display = "none"', 220);
+
+         document.getElementById("fire7").style.display = "inline";
+         setTimeout('document.getElementById("fire7").style.display = "none"', 240);  
+      }
+
+      function finish() {
+         if (f == 4) {
+            var timer = setInterval (function() {
+               document.getElementById("c1").style.display = "inline";
+               document.getElementById("c1").style.display = "none";
+            }, 100) 
+            setTimeout (function() {
+               clearInterval(timer);
+            }, 3000);
+         }
+      }
+
+      moving(document.getElementById("kot1"));
+      moving(document.getElementById("kot2"));
+      moving(document.getElementById("kot3"));
+      moving(document.getElementById("kot4"));
+
+      // перетаскивание котиков
+      function moving(obj) {
+          obj.onmousedown = function (e) {
+
+              obj.style.position = 'absolute';
+              moveAt(e);
+              document.body.appendChild(obj);
+              obj.style.zIndex = 1000;
+
+              function moveAt(e) {
+                  obj.style.left = e.pageX - obj.offsetWidth / 2 + 'px';
+                  obj.style.top = e.pageY - obj.offsetHeight / 2 + 'px';
+              }
+
+              document.onmousemove = function (e) {
+                  moveAt(e);
+              }
+
+              obj.onmouseup = function () {
+                  document.onmousemove = null;
+                  obj.onmouseup = null;
+                  check_area(obj);
+              }
+          }
+          obj.ondragstart = function () {
+              return false;
+          }
+      }
+
+   f = 0;
+
+   // проверка местоположения после отпускания мыши
+   function check_area(obj) {
+       var lefts = obj.getBoundingClientRect().left;
+       var tops = obj.getBoundingClientRect().top;
+       if (lefts > 800 & lefts < 1000 & tops > 300 & tops < 370) {
+           obj.remove();
+           f++;
+           fire();
+           finish();
+       }
+   }
+
+   </script>
+</body>
+
+</html>
